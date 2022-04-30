@@ -5,7 +5,7 @@ love.graphics.setDefaultFilter('nearest', 'nearest')
 
 -- enemy stuff
 enemy = {}
-enemies_controller = {} 
+enemies_controller = {}
 enemies_controller.enemies = {}
 enemies_controller.image = love.graphics.newImage('enemy.png')
 
@@ -32,7 +32,7 @@ function love.load()
 
   game_over = false
   game_win = false
-  cooldown_init = 50
+  cooldown_init = 20
 
   background_image = love.graphics.newImage('background.png')
 
@@ -112,7 +112,7 @@ function love.update(dt)
     end
     e.y = e.y + e.speed
   end
-  
+
   -- bullet move up
   for _,b in pairs(player.bullets) do
     b.y = b.y - 1
@@ -131,7 +131,7 @@ end
 
 function love.draw()
   love.graphics.scale(4)
- 
+
   -- game over
   if game_over then
     love.graphics.print("Game Over!")
@@ -145,7 +145,7 @@ function love.draw()
   love.graphics.draw(background_image)
 
   love.graphics.setColor(255, 255, 255)
- 
+
   -- draw player paddle
   love.graphics.draw(player.image, player.x, player.y, 0)
 
